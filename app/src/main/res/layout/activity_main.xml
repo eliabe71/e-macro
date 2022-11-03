@@ -1,26 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
-    <LinearLayout
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/carb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Carboidratos"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <TextView
+        android:id="@+id/gord"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Gorduras"
+
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/prot" />
+
+    <TextView
+        android:id="@+id/prot"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Proteínas"
+
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/carb" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="13dp"
+        android:indeterminate="true"
+
+        android:scaleY="4"
+        app:layout_constraintLeft_toRightOf="@id/carb"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:indeterminate="true"
+        android:layout_marginLeft="32dp"
+
+        android:layout_marginTop="13dp"
+
+        android:scaleY="4"
+        app:layout_constraintLeft_toRightOf="@id/carb"
+        app:layout_constraintTop_toTopOf="@id/prot" />
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="32dp"
+
+        android:layout_marginTop="15dp"
+        android:indeterminate="true"
+        android:scaleY="4"
+        app:layout_constraintLeft_toRightOf="@id/carb"
+        app:layout_constraintTop_toTopOf="@id/gord" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center_vertical"
-        tools:context=".MainActivity">
+        android:layout_marginStart="16dp"
 
-        <Button
-            android:id="@+id/roll_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/initial" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            android:layout_gravity="center_horizontal"/>
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gord" />
 
+    <Button
+        android:id="@+id/addRef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:text="Adcionar Refeição"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recycler" />
 
-    </LinearLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
