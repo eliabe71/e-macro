@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="10dp"
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
@@ -11,28 +12,54 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:gravity="center">
+
+        <TextView
+            android:id="@+id/refeicao"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:fontFamily=""
+            android:text="Nome Refeição"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:text="Nome Refeição"
+            android:layout_gravity="left"
+            android:layout_marginStart="228dp"
+            android:text="Kcal"
+            app:layout_constraintStart_toEndOf="@id/refeicao"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerDiet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@id/refeicao" />
 
-<!--        <Button-->
-<!--            android:id="@+id/button"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="1dp"-->
-<!--            android:text="adionar Alimento"-->
-<!--            />-->
 
-<!--        <Button-->
-<!--            android:id="@+id/button2"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="41dp"-->
-<!--            android:text="editar refeição"-->
-<!--            />-->
+        <Button
+            android:id="@+id/addAlimento"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:textSize="10dp"
+            android:text="Adcionar Alimento"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerDiet" />
+
+        <Button
+            android:id="@+id/edit"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="Editar Refeição"
+            android:textSize="10dp"
+            app:layout_constraintStart_toEndOf="@id/addAlimento"
+            app:layout_constraintTop_toBottomOf="@id/recyclerDiet" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

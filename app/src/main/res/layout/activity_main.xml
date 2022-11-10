@@ -1,98 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText">
 
-    <TextView
-        android:id="@+id/carb"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Carboidratos"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01" />
-
-    <TextView
-        android:id="@+id/gord"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Gorduras"
-
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/prot" />
-
-    <TextView
-        android:id="@+id/prot"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Proteínas"
-
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/carb" />
-
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:layout_width="200dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="13dp"
-        android:indeterminate="true"
-
-        android:scaleY="4"
-        app:layout_constraintLeft_toRightOf="@id/carb"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:layout_width="200dp"
-        android:layout_height="0dp"
-        android:indeterminate="true"
-        android:layout_marginLeft="32dp"
-
-        android:layout_marginTop="13dp"
-
-        android:scaleY="4"
-        app:layout_constraintLeft_toRightOf="@id/carb"
-        app:layout_constraintTop_toTopOf="@id/prot" />
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:layout_width="200dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="32dp"
-
-        android:layout_marginTop="15dp"
-        android:indeterminate="true"
-        android:scaleY="4"
-        app:layout_constraintLeft_toRightOf="@id/carb"
-        app:layout_constraintTop_toTopOf="@id/gord" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        >
 
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gord" />
+        <TextView
+            android:id="@+id/carb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Carboidratos"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.01" />
 
-    <Button
-        android:id="@+id/addRef"
+        <TextView
+            android:id="@+id/gord"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Gorduras"
+
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/prot" />
+
+        <TextView
+            android:id="@+id/prot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Proteínas"
+
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/carb" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="15dp"
+            android:indeterminate="true"
+
+            android:scaleY="4"
+            app:layout_constraintLeft_toRightOf="@id/carb"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            android:indeterminate="true"
+            android:layout_marginLeft="32dp"
+
+            android:layout_marginTop="13dp"
+
+            android:scaleY="4"
+            app:layout_constraintLeft_toRightOf="@id/carb"
+            app:layout_constraintTop_toTopOf="@id/prot" />
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="32dp"
+
+            android:layout_marginTop="15dp"
+            android:indeterminate="true"
+            android:scaleY="4"
+            app:layout_constraintLeft_toRightOf="@id/carb"
+            app:layout_constraintTop_toTopOf="@id/gord" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gord" />
+
+        <Button
+            android:id="@+id/addRef"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="132dp"
+            android:layout_marginBottom="10dp"
+            android:text="Adcionar Refeição"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recycler" />
+
+        <ImageButton
+            android:id="@+id/imageButtonShare"
+            android:layout_width="71dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="16dp"
+            android:src="@mipmap/ic_share"
+            app:layout_constraintEnd_toStartOf="@+id/imageButtonExport"
+            app:layout_constraintHorizontal_bias="0.94"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addRef" />
+
+        <ImageButton
+            android:id="@+id/buttonQrCode"
+            android:layout_width="60dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:adjustViewBounds="true"
+            android:focusableInTouchMode="true"
+            android:padding="11dp"
+            android:src="@mipmap/ic_qrcode"
+            android:translationZ="3dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageButtonShare"
+
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addRef" />
+
+        <ImageButton
+            android:id="@+id/imageButtonExport"
+            android:layout_width="63dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:src="@mipmap/ic_export"
+            app:layout_constraintEnd_toStartOf="@+id/imageButtonCamera"
+            app:layout_constraintTop_toBottomOf="@id/addRef" />
+
+        <ImageButton
+            android:id="@+id/imageButtonCamera"
+            android:layout_width="62dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="36dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addRef"
+            android:src="@mipmap/ic_camera_foreground" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navi"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:text="Adcionar Refeição"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recycler" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

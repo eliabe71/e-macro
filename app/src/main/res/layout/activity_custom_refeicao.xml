@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomRefeicao">
+
+    <TextView
+        android:id="@+id/refName"
+        android:layout_width="134dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Nome da Refeição"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editNameRef"
+        android:layout_width="177dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="Nome Refeição"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/refName" />
+
+    <TextView
+        android:id="@+id/horario"
+        android:layout_width="76dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="108dp"
+        android:text="Horario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTime"
+        android:layout_width="170dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="hora"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horario" />
+
+    <TextView
+        android:id="@+id/protBox"
+        android:layout_width="58dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="72dp"
+        android:text="Pro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNameRef" />
+
+    <TextView
+        android:id="@+id/countProtBox"
+        android:layout_width="59dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="56dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/protBox" />
+
+    <TextView
+        android:id="@+id/carbBox"
+        android:layout_width="72dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="72dp"
+        android:text="Carb"
+        app:layout_constraintStart_toEndOf="@+id/protBox"
+        app:layout_constraintTop_toBottomOf="@+id/editNameRef" />
+
+    <TextView
+        android:id="@+id/countCabrBox"
+        android:layout_width="73dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="36dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/countProtBox"
+        app:layout_constraintTop_toBottomOf="@+id/carbBox" />
+
+    <TextView
+        android:id="@+id/gordBox"
+        android:layout_width="62dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="72dp"
+        android:text="Gord"
+        app:layout_constraintStart_toEndOf="@+id/carbBox"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
+
+    <TextView
+        android:id="@+id/countGordBox"
+        android:layout_width="61dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="32dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/countCabrBox"
+        app:layout_constraintTop_toBottomOf="@+id/gordBox" />
+
+    <Button
+        android:id="@+id/buttonAddAliment"
+        android:layout_width="226dp"
+        android:layout_height="43dp"
+        android:text="Adcionar Alimento"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/countGordBox"
+        app:layout_constraintVertical_bias="0.425" />
+
+    <Button
+        android:id="@+id/buttonFinishOperation"
+        android:layout_width="228dp"
+        android:layout_height="45dp"
+        android:text="Finalizar Edição"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddAliment"
+        app:layout_constraintVertical_bias="0.055" />
+</androidx.constraintlayout.widget.ConstraintLayout>
