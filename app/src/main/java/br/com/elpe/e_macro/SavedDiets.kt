@@ -2,13 +2,14 @@ package br.com.elpe.e_macro
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 
 class SavedDiets : AppCompatActivity() {
     val array:ArrayList<String> = ArrayList()
-
+    lateinit var button: Button
     init{
     array.add("Eliabe")
     array.add("Cristiano")

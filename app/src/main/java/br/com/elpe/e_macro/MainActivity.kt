@@ -3,25 +3,25 @@ package br.com.elpe.e_macro
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar.DisplayOptions
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import br.com.elpe.e_macro.R.menu.main_menu
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.navigation.NavigationView
 
 
 class MainActivity : AppCompatActivity() {
     //private lateinit var binding: ActivityMainBinding
+    private val TIME_INTERVAL: Int = 2000
+    private var mBackPressed: Long = 0
 
     //val recycler = R.id.recycler
 
@@ -44,6 +44,21 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    override fun onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawers()
+            return
+        }
+
+        if (mBackPressed+TIME_INTERVAL > System.currentTimeMillis()) {
+            super.onBackPressed();
+            return;
+        }else{
+            Toast.makeText(this,"Clique Duas Vezes Para Sair", Toast.LENGTH_SHORT).show()
+        }
+        mBackPressed = System.currentTimeMillis()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -65,11 +80,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.saveDiet -> {
                     startSaveDiet()
                 }
+                R.id.nextsGyms ->{
+                    startMaps()
+                }
             }
             true
         }
 
-        val myAdapter = RefeicoesAdapter(array,array2)
+        val myAdapter = RefeicoesAdapter(array,array2,false)
         val recycler = findViewById<RecyclerView>(R.id.recycler)
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = myAdapter
@@ -77,6 +95,7 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.addRef)
 
         button.setOnClickListener {
+            openBottomSheetAddRef()
             //rollDice()
         }
 
@@ -96,13 +115,29 @@ class MainActivity : AppCompatActivity() {
         shareButton.setOnClickListener { shareSocialMedia() }
     }
 
-//    override fun
+    private fun startMaps() {
+        val intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent, null)
+    }
+
+    //    override fun
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             true
         } else super.onOptionsItemSelected(item)
     }
 
+    private fun openBottomSheetAddRef(){
+
+        val bottomSheet = BottomSheetDialog(this)
+
+        bottomSheet.setContentView(R.layout.bottom_sheet_add_ref)
+
+       // val qrCode = QrCode()
+       // bottomSheet.findViewById<ImageView>(R.id.imageQR)
+            //?.setImageBitmap(qrCode.encode("", "Eliabe"))
+        bottomSheet.show()
+    }
 
     private fun openBottomShetQRCode() {
         val bottomSheet = BottomSheetDialog(this)
@@ -121,7 +156,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     private fun startCamera() {
-        val intent = Intent(this, SavedDiets::class.java)
+        val intent = Intent(this, Scanner::class.java)
         startActivity(intent)
 
     }

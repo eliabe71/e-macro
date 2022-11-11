@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class RefeicoesAdapter (private val dataSet: ArrayList<String>, private val dataSet2: ArrayList<String> ) : RecyclerView.Adapter<RefeicoesAdapter.ViewHolder>(){
+class RefeicoesAdapter (private val dataSet: ArrayList<String>, private val dataSet2: ArrayList<String>, val r :Boolean = true) : RecyclerView.Adapter<RefeicoesAdapter.ViewHolder>(){
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val recycler: RecyclerView
@@ -27,7 +27,6 @@ class RefeicoesAdapter (private val dataSet: ArrayList<String>, private val data
             recycler = view.findViewById(R.id.recyclerDiet)
         }
     }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.diet_line, viewGroup, false)
@@ -37,7 +36,14 @@ class RefeicoesAdapter (private val dataSet: ArrayList<String>, private val data
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.text.text = dataSet[position]
 
-
+        if(r){
+            holder.buttonEdit.visibility = View.GONE
+            holder.button.visibility = View.GONE
+            val myAdapter = AlimentoAdapter(dataSet2)
+            holder.recycler.layoutManager = LinearLayoutManager(holder.itemView.context)
+            holder.recycler.adapter = myAdapter
+            return
+        }
         //Custom Refeição
         holder.buttonEdit.setOnClickListener {
             val bundle = Bundle()

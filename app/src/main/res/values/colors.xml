@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background">#101938</color>
+    <color name="backgroundLineDiet">#263238</color>
 
 </resources>

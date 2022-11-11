@@ -10,6 +10,9 @@
     <item
         android:id="@+id/saveDiet"
         android:title="Dietas Salvas" />
+    <item
+        android:id="@+id/nextsGyms"
+        android:title="Academias próximas" />
 
 
 </menu>

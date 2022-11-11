@@ -5,12 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="0dp"
     >
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/infosLayout"
         android:layout_width="match_parent"
-        android:background="@color/background"
         android:layout_height="80dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/background"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:text="Dieta Do Dia XX/XX/XXXX"
-
+                android:layout_marginLeft="10dp"
                 />
 
             <TextView
@@ -38,16 +39,19 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:hint="Nome Dieta "
+                android:layout_marginLeft="10dp"
 
                 />
         </LinearLayout>
 
 
         <ImageButton
+            android:id="@+id/viewRef"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginLeft="175dp"
             android:gravity="right"
-            android:layout_marginLeft="150dp"
+            android:layout_marginRight="5dp"
             android:src="@mipmap/ic_eye2_foreground" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -69,12 +73,12 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:text="Deseja Excluir esta dieta?"
-
+            android:layout_marginRight="0dp"
             />
 
         <ImageButton
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginLeft="180dp"
             android:gravity="right"
 
