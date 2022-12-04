@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1068740201087",
+    "project_id": "e-macro-aa784",
+    "storage_bucket": "e-macro-aa784.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068740201087:android:e699bab2e18fb2db230d4a",
+        "android_client_info": {
+          "package_name": "br.com.elpe.e_macro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068740201087-m7gkfojed8pt29odb6d2t0rqadpbluc3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmYvSOwCljUa14QCOtpQGvVSksP9Neh_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068740201087-m7gkfojed8pt29odb6d2t0rqadpbluc3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

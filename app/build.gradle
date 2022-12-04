@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -21,6 +22,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
         }
     }
     dataBinding{
@@ -69,5 +71,7 @@ dependencies {
     // Implementation of the AndroidX SQLite interfaces via the Android framework APIs.
     implementation("androidx.sqlite:sqlite-framework:$sqlite_version")
 
+    implementation('com.google.firebase:firebase-common-ktx:20.2.0')
+    implementation platform('com.google.firebase:firebase-bom:31.1.0')
 
 }

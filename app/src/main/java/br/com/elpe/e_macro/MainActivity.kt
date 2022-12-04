@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.ktx.Firebase
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,13 +24,15 @@ class MainActivity : AppCompatActivity() {
     private val TIME_INTERVAL: Int = 2000
     private var mBackPressed: Long = 0
 
-    //val recycler = R.id.recycler
+    //val recycler = R.id.recycler]
+    lateinit var firebase: Firebase
 
     private val array = ArrayList<String>()
     private val array2 = ArrayList<String>()
     lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
-    lateinit  var drawerLayout: DrawerLayout
+    lateinit var drawerLayout: DrawerLayout
     lateinit var navigationView: NavigationView
+
     init {
         array.add("Eliabe")
         array.add("Cristiano")
@@ -45,16 +48,16 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawers()
             return
         }
 
-        if (mBackPressed+TIME_INTERVAL > System.currentTimeMillis()) {
+        if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis()) {
             super.onBackPressed();
             return;
-        }else{
-            Toast.makeText(this,"Clique Duas Vezes Para Sair", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Clique Duas Vezes Para Sair", Toast.LENGTH_SHORT).show()
         }
         mBackPressed = System.currentTimeMillis()
     }
@@ -65,7 +68,8 @@ class MainActivity : AppCompatActivity() {
 
 
         drawerLayout = findViewById<DrawerLayout>(R.id.my_drawer_layout);
-        actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+        actionBarDrawerToggle =
+            ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
@@ -75,19 +79,19 @@ class MainActivity : AppCompatActivity() {
 
         navigationView = findViewById(R.id.navi)
 
-        navigationView.setNavigationItemSelectedListener{
-            when(it.itemId){
+        navigationView.setNavigationItemSelectedListener {
+            when (it.itemId) {
                 R.id.saveDiet -> {
                     startSaveDiet()
                 }
-                R.id.nextsGyms ->{
+                R.id.nextsGyms -> {
                     startMaps()
                 }
             }
             true
         }
 
-        val myAdapter = RefeicoesAdapter(array,array2,false)
+        val myAdapter = RefeicoesAdapter(array, array2, false)
         val recycler = findViewById<RecyclerView>(R.id.recycler)
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = myAdapter
@@ -127,15 +131,15 @@ class MainActivity : AppCompatActivity() {
         } else super.onOptionsItemSelected(item)
     }
 
-    private fun openBottomSheetAddRef(){
+    private fun openBottomSheetAddRef() {
 
         val bottomSheet = BottomSheetDialog(this)
 
         bottomSheet.setContentView(R.layout.bottom_sheet_add_ref)
 
-       // val qrCode = QrCode()
-       // bottomSheet.findViewById<ImageView>(R.id.imageQR)
-            //?.setImageBitmap(qrCode.encode("", "Eliabe"))
+        // val qrCode = QrCode()
+        // bottomSheet.findViewById<ImageView>(R.id.imageQR)
+        //?.setImageBitmap(qrCode.encode("", "Eliabe"))
         bottomSheet.show()
     }
 
@@ -150,17 +154,19 @@ class MainActivity : AppCompatActivity() {
         bottomSheet.show()
     }
 
-    private fun startSaveDiet(){
-        val intent = Intent(this,SavedDiets::class.java)
+    private fun startSaveDiet() {
+        val intent = Intent(this, SavedDiets::class.java)
         startActivity(intent, null)
 
     }
+
     private fun startCamera() {
         val intent = Intent(this, Scanner::class.java)
         startActivity(intent)
 
     }
-    private fun shareSocialMedia(){
+
+    private fun shareSocialMedia() {
         val intent = Intent()
         intent.action = Intent.ACTION_SEND;
         intent.type = "image/*";
