@@ -1,37 +1,48 @@
 package br.com.elpe.e_macro
 
-import android.annotation.SuppressLint
+import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.drawerlayout.widget.DrawerLayout
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.navigation.NavigationView
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import java.sql.Timestamp
 
 class VisualizationDiete : AppCompatActivity() {
     private val array = ArrayList<String>()
     private val array2 = ArrayList<String>()
+    private var arrayKey = ArrayList<String>()
+    private val db = Firebase.firestore
     init {
         array.add("Eliabe")
-        array.add("Cristiano")
-        array.add("Basil")
-        array.add("babel")
-        array.add("Baleia")
-        array2.add("Eliabe")
-        array2.add("Cristiano")
-        array2.add("Basil")
-        array2.add("babel")
-        array2.add("Baleia")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visualization_diete)
-        val myAdapter = RefeicoesAdapter(array,array2,true)
 
-        val recycler = findViewById<RecyclerView>(R.id.recyclerVisualization)
-        recycler.layoutManager = LinearLayoutManager(this)
-        recycler.adapter = myAdapter
+        db.collection("refeicao")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    if(intent.extras?.get("name").toString()
+                        == document.data["nomeDieta"].toString()){
+                        array.add(document.data["nome"].toString())
+                        arrayKey.add(document.id)
+                        array2.add(document.data["nomeWindow"].toString())
+                    }
+                }
+                val myAdapter = RefeicoesAdapter(array,array2,true, AppCompatActivity(), arrayKey)
+                val recycler = findViewById<RecyclerView>(R.id.recyclerVisualization)
+                recycler.layoutManager = LinearLayoutManager(this)
+                recycler.adapter = myAdapter
+                recycler.adapter?.notifyDataSetChanged()
+
+            }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents.", exception)
+            }
     }
 }

@@ -19,7 +19,7 @@
         >
 
         <TextView
-            android:id="@+id/carb"
+            android:id="@+id/car"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -50,39 +50,35 @@
 
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/carb" />
+            app:layout_constraintTop_toBottomOf="@id/car" />
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:layout_width="200dp"
             android:layout_height="0dp"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="15dp"
-            android:indeterminate="true"
-
+            android:id="@+id/progressCarb"
             android:scaleY="4"
-            app:layout_constraintLeft_toRightOf="@id/carb"
+            app:layout_constraintLeft_toRightOf="@id/car"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:layout_width="200dp"
             android:layout_height="0dp"
-            android:indeterminate="true"
             android:layout_marginLeft="32dp"
-
+            android:id="@+id/progressProt"
             android:layout_marginTop="13dp"
-
             android:scaleY="4"
-            app:layout_constraintLeft_toRightOf="@id/carb"
+            app:layout_constraintLeft_toRightOf="@id/car"
             app:layout_constraintTop_toTopOf="@id/prot" />
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:layout_width="200dp"
             android:layout_height="0dp"
             android:layout_marginLeft="32dp"
-
+            android:id="@+id/progressGord"
             android:layout_marginTop="15dp"
-            android:indeterminate="true"
             android:scaleY="4"
-            app:layout_constraintLeft_toRightOf="@id/carb"
+            app:layout_constraintLeft_toRightOf="@id/car"
             app:layout_constraintTop_toTopOf="@id/gord" />
 
         <androidx.recyclerview.widget.RecyclerView

@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1068740201087",
-    "project_id": "e-macro-aa784",
-    "storage_bucket": "e-macro-aa784.appspot.com"
+    "project_number": "216669429597",
+    "project_id": "e-macro-944bb",
+    "storage_bucket": "e-macro-944bb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1068740201087:android:e699bab2e18fb2db230d4a",
+        "mobilesdk_app_id": "1:216669429597:android:31c5f5885ff0d8a3a352b4",
         "android_client_info": {
           "package_name": "br.com.elpe.e_macro"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1068740201087-m7gkfojed8pt29odb6d2t0rqadpbluc3.apps.googleusercontent.com",
+          "client_id": "216669429597-0q9qdqekr9h83qhh1ep7tder8k5vfkas.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAmYvSOwCljUa14QCOtpQGvVSksP9Neh_Q"
+          "current_key": "AIzaSyCjkHkO_7jSj8ZWV9fotygqoEwXccWWB8Q"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1068740201087-m7gkfojed8pt29odb6d2t0rqadpbluc3.apps.googleusercontent.com",
+              "client_id": "216669429597-0q9qdqekr9h83qhh1ep7tder8k5vfkas.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

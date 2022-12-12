@@ -42,12 +42,13 @@ class DietsSavedsAdapter(private val dataName: ArrayList<String>) : RecyclerView
         holder.textViewName.text = dataName[position]
         holder.buttonEye.setOnClickListener {
             holder.itemView.context
-            startViewDetailsDiet(holder.itemView.context)
+            startViewDetailsDiet(holder.itemView.context,position)
         }
     }
 
-    private fun startViewDetailsDiet(context: Context) {
+    private fun startViewDetailsDiet(context: Context, position:Int) {
         val intent = Intent(context,VisualizationDiete::class.java)
+        intent.putExtra("name" , dataName[position])
         startActivity(context,intent, null)
     }
 
